@@ -17,10 +17,16 @@ function App() {
   const [completedAlgorithms, setCompletedAlgorithms] = useState([]);
   const [currentProblem, setCurrentProblem] = useState('');
   
-  // Handler for marking algorithm as completed
-  const handleAlgorithmCompletion = (algorithm) => {
-    setCompletedAlgorithms([...completedAlgorithms, algorithm]);
-  };
+// Handler for marking algorithm as completed
+const handleAlgorithmCompletion = (algorithm) => {
+  setCompletedAlgorithms([...completedAlgorithms, algorithm]);
+  
+  // Check if all algorithms are completed
+  const allCompleted = algorithms.every(algo => completedAlgorithms.includes(algo));
+  if (allCompleted) {
+    setCurrentProblem('');
+  }
+};
 
   // Handler for resetting the algorithm list
   const handleResetList = () => {
@@ -58,8 +64,8 @@ function App() {
       </div>
       {/* Conditional rendering for alert color */}
       {currentProblem && 
-        <Alert variant={currentProblem === 'All done!' ? 'success' : 'warning'} className="mt-3">
-          {currentProblem}
+        <Alert variant={algorithms.length === completedAlgorithms.length ? 'success' : 'warning'} className="mt-3">
+        {algorithms.length === completedAlgorithms.length ? 'All done!' : currentProblem}
         </Alert>
       }
       {/* AlgoList component */}
@@ -71,7 +77,7 @@ function App() {
         currentProblem={currentProblem} // Pass the current problem to AlgoList
       />
       {/* AlgoQuestion component with algorithm prop */}
-      {currentProblem && <AlgoQuestion algorithm={currentProblem} />}
+      {currentProblem && currentProblem !== 'All done!' && <AlgoQuestion algorithm={currentProblem} />}
       {/* AlgoForm component */}
       {/*<AlgoForm onAddAlgorithm={handleAddAlgorithm} /> */}
     </div>

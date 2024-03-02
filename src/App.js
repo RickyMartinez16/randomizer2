@@ -68,6 +68,7 @@ function App() {
         onAlgorithmClick={handleAlgorithmCompletion}
         completedAlgorithms={completedAlgorithms}
         onAddAlgorithm={handleAddAlgorithm}
+        currentProblem={currentProblem} // Pass the current problem to AlgoList
       />
       {/* AlgoQuestion component with algorithm prop */}
       {currentProblem && <AlgoQuestion algorithm={currentProblem} />}

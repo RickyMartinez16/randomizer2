@@ -1,7 +1,7 @@
 import React from 'react';
 import AlgoItem from './AlgoItem'; // Import AlgoItem component
 
-const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, onAddAlgorithm }) => {
+const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, onAddAlgorithm, currentProblem }) => {
   return (
     <div className="algo-list">
       <h2>Algorithm List</h2> {/* Title for the algorithm list */}
@@ -14,6 +14,7 @@ const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, onAddAlgo
             completed={completedAlgorithms.includes(algorithm)} // Check if algorithm is completed
             onAlgorithmClick={onAlgorithmClick} // Handler for clicking on an algorithm
             completedAlgorithms={completedAlgorithms} // Pass completed algorithms as prop
+            isCurrentProblem={algorithm === currentProblem} // Pass whether the algorithm is the current problem
           />
         ))}
       </ul>

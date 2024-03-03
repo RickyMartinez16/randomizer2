@@ -72,7 +72,7 @@ function App() {
       {/* AlgoQuestion component with algorithm prop */}
       {currentProblem && <AlgoQuestion algorithm={currentProblem} />}
       {/* AlgoForm component */}
-      <AlgoForm onAddAlgorithm={handleAddAlgorithm} />
+      {/*<AlgoForm onAddAlgorithm={handleAddAlgorithm} /> */}
     </div>
   );
 }

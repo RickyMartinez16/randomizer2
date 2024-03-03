@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const AlgoItem = ({ algorithm, onAlgorithmClick, completedAlgorithms }) => {
   // Initialize completed state based on whether the algorithm is in the completed algorithms list
@@ -9,7 +9,7 @@ const AlgoItem = ({ algorithm, onAlgorithmClick, completedAlgorithms }) => {
     setCompleted(completedAlgorithms.includes(algorithm));
   }, [completedAlgorithms, algorithm]);
 
-  // Toggle completed state when the item is clicked
+  // Handle click event
   const handleClick = () => {
     // Toggle the completed state
     setCompleted(prevCompleted => !prevCompleted);
@@ -18,12 +18,13 @@ const AlgoItem = ({ algorithm, onAlgorithmClick, completedAlgorithms }) => {
   };
 
   return (
-    <li onClick={handleClick} style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+    <li onClick={handleClick} style={{ textDecoration: completed ? 'line-through' : 'none', cursor: completed ? 'default' : 'pointer' }}>
       {algorithm}
     </li>
   );
 };
 
 export default AlgoItem;
+
 
 

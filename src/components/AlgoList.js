@@ -1,4 +1,4 @@
-import React from 'react'; // Import React library
+import React from 'react';
 import AlgoItem from './AlgoItem'; // Import AlgoItem component
 
 const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, handleNewProblem, onAddAlgorithm }) => {

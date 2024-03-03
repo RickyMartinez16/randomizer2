@@ -1,5 +1,3 @@
-// AlgoList.js
-
 import React from 'react';
 import AlgoItem from './AlgoItem';
 import AlgoForm from './AlgoForm';

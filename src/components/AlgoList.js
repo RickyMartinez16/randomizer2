@@ -4,7 +4,7 @@ import AlgoItem from './AlgoItem'; // Import AlgoItem component
 const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, onAddAlgorithm }) => {
   return (
     <div className="algo-list">
-      <h2>Algorithm List</h2> {/* Title for the algorithm list */}
+      <h2>Algorithm List</h2>
       <ul>
         {/* Map through the algorithms array to render AlgoItem components */}
         {algorithms.map((algorithm, index) => (

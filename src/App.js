@@ -1,5 +1,3 @@
-// App.js
-
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";

@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import AlgoList from "./components/AlgoList";
 import AlgoForm from "./components/AlgoForm";
-import AlgoQuestion from './components/AlgoQuestion';
+import AlgoQuestion from './components/AlgoQuestion'; // Import AlgoQuestion component
 
 function App() {
   // Initial state for algorithms list, completed algorithms, and current problem
@@ -71,9 +71,12 @@ function App() {
       }
       {/* AlgoForm component */}
       <AlgoForm onAddAlgorithm={handleAddAlgorithm} />
+      {/* AlgoQuestion component */}
+      {currentProblem && <AlgoQuestion algorithm={currentProblem} />}
     </div>
   );
 }
 
 export default App;
+
 

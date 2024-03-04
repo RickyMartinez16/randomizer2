@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import AlgoList from "./components/AlgoList";
 import AlgoForm from "./components/AlgoForm";
+import AlgoQuestion from './components/AlgoQuestion';
 
 function App() {
   // Initial state for algorithms list, completed algorithms, and current problem

@@ -1,10 +1,11 @@
 // App.js
+
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Alert from "react-bootstrap/Alert";
-import AlgoList from "./components/AlgoList";
-import AlgoForm from "./components/AlgoForm";
-import AlgoQuestion from './components/AlgoQuestion';
+import Button from "react-bootstrap/Button"; // Import Bootstrap Button component
+import Alert from "react-bootstrap/Alert"; // Import Bootstrap Alert component
+import AlgoList from "./components/AlgoList"; // Import AlgoList component
+import AlgoForm from "./components/AlgoForm"; // Import AlgoForm component
+import AlgoQuestion from './components/AlgoQuestion'; // Import AlgoQuestion component
 
 function App() {
   // Initial state for algorithms list, completed algorithms, and current problem
@@ -57,6 +58,12 @@ function App() {
         <Button variant="primary" onClick={handleNewProblem}>New Problem</Button>
         <Button variant="secondary" onClick={handleResetList}>Reset List</Button>
       </div>
+      {/* Conditional rendering for alert color */}
+      {currentProblem && 
+        <Alert variant={currentProblem === 'All done!' ? 'success' : 'warning'} className="mt-3">
+          {currentProblem}
+        </Alert>
+      }
       {/* AlgoList component */}
       <AlgoList 
         algorithms={algorithms} 
@@ -64,16 +71,10 @@ function App() {
         completedAlgorithms={completedAlgorithms}
         onAddAlgorithm={handleAddAlgorithm}
       />
-      {/* Conditional rendering for alert color */}
-      {currentProblem && 
-        <Alert variant={currentProblem === 'All done!' ? 'success' : 'warning'} className="mt-3">
-          {currentProblem}
-        </Alert>
-      }
-      {/* AlgoForm component */}
-      <AlgoForm onAddAlgorithm={handleAddAlgorithm} />
       {/* AlgoQuestion component with algorithm prop */}
       {currentProblem && <AlgoQuestion algorithm={currentProblem} />}
+      {/* AlgoForm component */}
+      <AlgoForm onAddAlgorithm={handleAddAlgorithm} />
     </div>
   );
 }

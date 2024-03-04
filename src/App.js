@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button"; // Import Bootstrap Button componen
 import Alert from "react-bootstrap/Alert"; // Import Bootstrap Alert component
 import AlgoList from "./components/AlgoList"; // Import AlgoList component
 import AlgoForm from "./components/AlgoForm"; // Import AlgoForm component
-import AlgoQuestion from './components/AlgoQuestion'; // Import AlgoQuestion component
+import AlgoQuestion from './components/AlgoQuestion';
 
 function App() {
   // Initial state for algorithms list, completed algorithms, and current problem

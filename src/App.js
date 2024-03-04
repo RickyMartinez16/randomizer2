@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
@@ -71,12 +72,10 @@ function App() {
       }
       {/* AlgoForm component */}
       <AlgoForm onAddAlgorithm={handleAddAlgorithm} />
-      {/* AlgoQuestion component */}
+      {/* AlgoQuestion component with algorithm prop */}
       {currentProblem && <AlgoQuestion algorithm={currentProblem} />}
     </div>
   );
 }
 
 export default App;
-
-

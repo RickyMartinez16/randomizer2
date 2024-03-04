@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button"; // Import Bootstrap Button component
 import Alert from "react-bootstrap/Alert"; // Import Bootstrap Alert component
 import AlgoList from "./components/AlgoList"; // Import AlgoList component
-import AlgoForm from "./components/AlgoForm"; // Import AlgoForm component
+import AlgoForm from "./components/AlgoForm";
 import AlgoQuestion from './components/AlgoQuestion';
 
 function App() {

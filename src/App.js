@@ -1,7 +1,7 @@
 // App.js
 
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button"; // Import Bootstrap Button component
+import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import AlgoList from "./components/AlgoList";
 import AlgoForm from "./components/AlgoForm";

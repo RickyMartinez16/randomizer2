@@ -10,7 +10,7 @@ function App() {
   const [algorithms, setAlgorithms] = useState(initialAlgorithms);
   const [completedAlgorithms, setCompletedAlgorithms] = useState([]);
   const [currentProblem, setCurrentProblem] = useState('');
-  const [newAlgorithmName, setNewAlgorithmName] = useState('');
+  
 
   // Handler for marking algorithm as completed
   const handleAlgorithmCompletion = (algorithm) => {

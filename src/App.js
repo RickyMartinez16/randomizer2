@@ -1,34 +1,26 @@
 import React, { useState } from "react";
-import Button from "./components/Button";
+import Button from "react-bootstrap/Button"; // Import Bootstrap Button component
 import AlgoList from "./components/AlgoList";
+import AlgoForm from "./components/AlgoForm";
 
 function App() {
-  // Initial list of algorithms
   const initialAlgorithms = ['isAnagram', 'reverse string', 'unique element'];
-
-  // State variables
   const [algorithms, setAlgorithms] = useState(initialAlgorithms);
   const [completedAlgorithms, setCompletedAlgorithms] = useState([]);
   const [currentProblem, setCurrentProblem] = useState('');
   
-
-  // Handler for marking algorithm as completed
   const handleAlgorithmCompletion = (algorithm) => {
     setCompletedAlgorithms([...completedAlgorithms, algorithm]);
   };
 
-  // Handler for resetting the algorithm list
   const handleResetList = () => {
     setAlgorithms(initialAlgorithms);
     setCompletedAlgorithms([]);
     setCurrentProblem('');
   };
 
-  // Handler for selecting new problem
   const handleNewProblem = () => {
-    // Filter out completed algorithms
     const availableAlgorithms = algorithms.filter(algorithm => !completedAlgorithms.includes(algorithm));
-
     if (availableAlgorithms.length === 0) {
       setCurrentProblem('All done!');
     } else {
@@ -37,31 +29,25 @@ function App() {
     }
   };
 
-  // Handler for adding a new algorithm
   const handleAddAlgorithm = (algorithmName) => {
     setAlgorithms([...algorithms, algorithmName]);
   };
 
-  // Handler for shuffling the list of algorithms
-  const handleRandomizeAlgorithms = () => {
-    const shuffledAlgorithms = [...algorithms].sort(() => Math.random() - 0.5);
-    setAlgorithms(shuffledAlgorithms);
-  };
-
   return (
-    <div>
-      <h1>Algo Practice</h1>
-      <Button onClick={handleRandomizeAlgorithms}>Randomize Algorithms</Button>
-      <Button onClick={handleResetList}>List Reset</Button>
-      <Button onClick={handleNewProblem}>New Problem</Button>
+    <div className="container mt-5"> {/* Bootstrap container class */}
+      <h1 className="mb-4">Algo Practice</h1> {/* Bootstrap margin bottom class */}
+      <div className="d-flex justify-content-between mb-3"> {/* Bootstrap flexbox classes */}
+        <Button variant="primary" onClick={handleNewProblem}>New Problem</Button> {/* Bootstrap Button component */}
+        <Button variant="secondary" onClick={handleResetList}>Reset List</Button> {/* Bootstrap Button component */}
+      </div>
       <AlgoList 
         algorithms={algorithms} 
         onAlgorithmClick={handleAlgorithmCompletion}
         completedAlgorithms={completedAlgorithms}
-        handleNewProblem={handleNewProblem}
         onAddAlgorithm={handleAddAlgorithm}
       />
-      {currentProblem && <div>Current Problem: {currentProblem}</div>}
+      {currentProblem && <div className="alert alert-info mt-3">{currentProblem}</div>} {/* Bootstrap alert component */}
+      <AlgoForm onAddAlgorithm={handleAddAlgorithm} />
     </div>
   );
 }

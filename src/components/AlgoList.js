@@ -19,8 +19,6 @@ const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, handleNew
           />
         ))}
       </ul>
-      <AlgoForm onAddAlgorithm={onAddAlgorithm} />
-      <button onClick={handleNewProblem}>New Problem</button>
     </div>
   );
 };

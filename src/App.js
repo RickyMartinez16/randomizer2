@@ -46,7 +46,7 @@ function App() {
         completedAlgorithms={completedAlgorithms}
         onAddAlgorithm={handleAddAlgorithm}
       />
-      {currentProblem && <div className="alert alert-info mt-3">{currentProblem}</div>} {/* Bootstrap alert component */}
+      {currentProblem && <div className="alert alert-warning mt-3">{currentProblem}</div>} {/* Bootstrap alert component */}
       <AlgoForm onAddAlgorithm={handleAddAlgorithm} />
     </div>
   );

@@ -1,18 +1,22 @@
-// AlgorithmForm.js
-
 import React, { useState } from 'react';
 
 const AlgoForm = ({ onAddAlgorithm }) => {
+  // State variable to track the input value
   const [algorithmName, setAlgorithmName] = useState('');
 
+  // Handler for input change
   const handleChange = (event) => {
     setAlgorithmName(event.target.value);
   };
 
+  // Handler for form submission
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Trim the algorithm name and check if it's not empty
     if (algorithmName.trim() !== '') {
+      // Call the onAddAlgorithm handler with the algorithm name
       onAddAlgorithm(algorithmName);
+      // Clear the input field after adding the algorithm
       setAlgorithmName('');
     }
   };

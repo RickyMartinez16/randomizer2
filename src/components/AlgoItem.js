@@ -1,20 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
 const AlgoItem = ({ algorithm, onAlgorithmClick, completedAlgorithms }) => {
-  // State variable to track completion status of the algorithm
-  const [completed, setCompleted] = useState(false);
+  // Initialize completed state based on whether the algorithm is in the completed algorithms list
+  const [completed, setCompleted] = useState(completedAlgorithms.includes(algorithm));
 
-  // Effect to update completion status when completedAlgorithms or algorithm changes
+  // Update completed state when completedAlgorithms prop changes
   useEffect(() => {
-    // Check if the algorithm is in the completed algorithms list
     setCompleted(completedAlgorithms.includes(algorithm));
   }, [completedAlgorithms, algorithm]);
 
-  // Handler for clicking on the algorithm item
+  // Toggle completed state when the item is clicked
   const handleClick = () => {
-    // Toggle completion status
+    // Toggle the completed state
     setCompleted(!completed);
-    // Call the onAlgorithmClick handler to mark the algorithm as completed
+    // Call the onAlgorithmClick handler with the algorithm name
     onAlgorithmClick(algorithm);
   };
 
@@ -26,3 +25,4 @@ const AlgoItem = ({ algorithm, onAlgorithmClick, completedAlgorithms }) => {
 };
 
 export default AlgoItem;
+

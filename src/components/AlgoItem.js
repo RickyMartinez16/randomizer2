@@ -12,7 +12,7 @@ const AlgoItem = ({ algorithm, onAlgorithmClick, completedAlgorithms }) => {
   // Toggle completed state when the item is clicked
   const handleClick = () => {
     // Toggle the completed state
-    setCompleted(!completed);
+    setCompleted(prevCompleted => !prevCompleted);
     // Call the onAlgorithmClick handler with the algorithm name
     onAlgorithmClick(algorithm);
   };
@@ -25,4 +25,5 @@ const AlgoItem = ({ algorithm, onAlgorithmClick, completedAlgorithms }) => {
 };
 
 export default AlgoItem;
+
 

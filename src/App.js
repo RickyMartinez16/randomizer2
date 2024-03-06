@@ -44,7 +44,6 @@ function App() {
 
   return (
     <div className="container mt-5">
-      {/* Title with center alignment */}
       <h1 className="text-center mb-4">Algo Practice</h1>
       {/* Buttons for new problem and reset list */}
       <div className="d-flex justify-content-between mb-3">

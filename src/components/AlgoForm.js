@@ -5,14 +5,19 @@ import Button from 'react-bootstrap/Button'; // Import Bootstrap Button componen
 const AlgoForm = ({ onAddAlgorithm }) => {
   const [algorithmName, setAlgorithmName] = useState('');
 
+  // Handler for input change
   const handleChange = (event) => {
     setAlgorithmName(event.target.value);
   };
 
+  // Handler for form submission
   const handleSubmit = (event) => {
     event.preventDefault();
+    // Check if algorithm name is not empty
     if (algorithmName.trim() !== '') {
+      // Call onAddAlgorithm with the new algorithm name
       onAddAlgorithm(algorithmName);
+      // Clear the input field
       setAlgorithmName('');
     }
   };
@@ -33,3 +38,4 @@ const AlgoForm = ({ onAddAlgorithm }) => {
 };
 
 export default AlgoForm;
+

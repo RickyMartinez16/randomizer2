@@ -6,7 +6,12 @@ import AlgoForm from "./components/AlgoForm";
 
 function App() {
   // Initial state for algorithms list, completed algorithms, and current problem
-  const initialAlgorithms = ['isAnagram', 'reverse string', 'unique element'];
+  const initialAlgorithms = [
+    'isAnagram', 'Are All Chars Unique?', 'Array Pair Sum', 'Find Missing Element',
+    'Largest Continuous Sum', "Sentence Reversal", "String Compression", "Implement a Stack",
+    "Implement a Queue", "Implement a Deque", "Balanced Parentheses", "Implement a Queue 2 Stacks",
+    "Singly List Cycle Check"
+  ];
   const [algorithms, setAlgorithms] = useState(initialAlgorithms);
   const [completedAlgorithms, setCompletedAlgorithms] = useState([]);
   const [currentProblem, setCurrentProblem] = useState('');

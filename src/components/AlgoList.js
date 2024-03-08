@@ -16,6 +16,7 @@ const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, handleNew
             algorithm={algorithm}
             completed={completedAlgorithms.includes(algorithm)}
             onAlgorithmClick={onAlgorithmClick}
+            completedAlgorithms={completedAlgorithms}
           />
         ))}
       </ul>

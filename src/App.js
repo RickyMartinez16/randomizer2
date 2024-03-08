@@ -4,12 +4,11 @@ import AlgoList from "./components/AlgoList";
 
 function App() {
 
-  const algorithms = ['Algorithm 1', 'Algorithm 2', 'Algorithm 3'];
-
-
-  // State variables
+  const [algorithms, setAlgorithms] = useState(['Algorithm 1', 'Algorithm 2', 'Algorithm 3']);
   const [completedAlgorithms, setCompletedAlgorithms] = useState([]);
   const [currentProblem, setCurrentProblem] = useState('');
+  const [newAlgorithmName, setNewAlgorithmName] = useState('');
+  
 
   // Handler for marking algorithm as completed
   const handleAlgorithmCompletion = (algorithm) => {
@@ -21,6 +20,10 @@ function App() {
     // Logic to select and set new problem
     const randomIndex = Math.floor(Math.random() * algorithms.length);
     setCurrentProblem(algorithms[randomIndex]);
+  };
+
+  const handleAddAlgorithm = (algorithmName) => {
+    setAlgorithms([...algorithms, algorithmName]);
   };
 
 
@@ -37,6 +40,7 @@ function App() {
         onAlgorithmClick={handleAlgorithmCompletion}
         completedAlgorithms={completedAlgorithms}
         handleNewProblem={handleNewProblem}
+        onAddAlgorithm={handleAddAlgorithm}
       />
     </div>
   );

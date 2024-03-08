@@ -15,6 +15,13 @@ function App() {
     setCompletedAlgorithms([...completedAlgorithms, algorithm]);
   };
 
+  // Handler for resetting the algorithm list
+  const handleResetList = () => {
+    setAlgorithms(initialAlgorithms);
+    setCompletedAlgorithms([]);
+    setCurrentProblem('');
+  };
+
   // Handler for selecting new problem
   const handleNewProblem = () => {
     // Logic to select and set new problem

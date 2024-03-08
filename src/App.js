@@ -23,12 +23,18 @@ function App() {
     setCurrentProblem('');
   };
 
-  // Handler for selecting new problem
-  const handleNewProblem = () => {
-    // Logic to select and set new problem
-    const randomIndex = Math.floor(Math.random() * algorithms.length);
-    setCurrentProblem(algorithms[randomIndex]);
-  };
+// Handler for selecting new problem
+const handleNewProblem = () => {
+  // Filter out completed algorithms
+  const availableAlgorithms = algorithms.filter(algorithm => !completedAlgorithms.includes(algorithm));
+
+  if (availableAlgorithms.length === 0) {
+    setCurrentProblem('All done!');
+  } else {
+    const randomIndex = Math.floor(Math.random() * availableAlgorithms.length);
+    setCurrentProblem(availableAlgorithms[randomIndex]);
+  }
+};
 
   const handleAddAlgorithm = (algorithmName) => {
     setAlgorithms([...algorithms, algorithmName]);

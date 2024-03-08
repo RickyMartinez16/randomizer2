@@ -32,6 +32,12 @@ function App() {
     console.log('Clicked algorithm:', algorithm);
   };
 
+    // Handler for shuffling the list of algorithms
+    const handleRandomizeAlgorithms = () => {
+      const shuffledAlgorithms = [...algorithms].sort(() => Math.random() - 0.5);
+      setAlgorithms(shuffledAlgorithms);
+    };
+
   return (
     <div>
     <h1>Algo Practice</h1>

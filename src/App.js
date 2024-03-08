@@ -41,6 +41,7 @@ function App() {
   return (
     <div>
     <h1>Algo Practice</h1>
+    <Button onClick={handleRandomizeAlgorithms}>Randomize Algorithms</Button>
       <AlgoList 
         algorithms={algorithms} 
         onAlgorithmClick={handleAlgorithmCompletion}

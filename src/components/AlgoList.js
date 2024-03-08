@@ -8,7 +8,6 @@ const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, handleNew
   return (
     <div className="algo-list">
       <h2>Algorithm List</h2>
-      <AlgoForm onAddAlgorithm={onAddAlgorithm} />
       <ul>
         {algorithms.map((algorithm, index) => (
           <AlgoItem
@@ -20,6 +19,7 @@ const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, handleNew
           />
         ))}
       </ul>
+      <AlgoForm onAddAlgorithm={onAddAlgorithm} />
       <button onClick={handleNewProblem}>New Problem</button>
     </div>
   );

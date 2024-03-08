@@ -4,7 +4,8 @@ import AlgoList from "./components/AlgoList";
 
 function App() {
 
-  const [algorithms, setAlgorithms] = useState(['Algorithm 1', 'Algorithm 2', 'Algorithm 3']);
+  const initialAlgorithms = ['Algorithm 1', 'Algorithm 2', 'Algorithm 3'];
+  const [algorithms, setAlgorithms] = useState(initialAlgorithms);
   const [completedAlgorithms, setCompletedAlgorithms] = useState([]);
   const [currentProblem, setCurrentProblem] = useState('');
   const [newAlgorithmName, setNewAlgorithmName] = useState('');

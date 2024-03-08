@@ -51,6 +51,7 @@ function App() {
     <h1>Algo Practice</h1>
     <Button onClick={handleRandomizeAlgorithms}>Randomize Algorithms</Button>
     <Button onClick={handleResetList}>List Reset</Button>
+    <Button onClick={handleNewProblem}>New Problem</Button>
       <AlgoList 
         algorithms={algorithms} 
         onAlgorithmClick={handleAlgorithmCompletion}
@@ -58,6 +59,7 @@ function App() {
         handleNewProblem={handleNewProblem}
         onAddAlgorithm={handleAddAlgorithm}
       />
+      {currentProblem && <div>Current Problem: {currentProblem}</div>}
     </div>
   );
 }

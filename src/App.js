@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import AlgoList from "./components/AlgoList";
@@ -7,13 +7,20 @@ import AlgoQuestion from './components/AlgoQuestion';
 
 function App() {
   // Initial state for algorithms list, completed algorithms, and current problem
-  const initialAlgorithms = [
-    'isAnagram', 'Are All Chars Unique?', 'Array Pair Sum', 'Find Missing Element',
-    'Largest Continuous Sum', "Sentence Reversal", "String Compression", "Implement a Stack",
-    "Implement a Queue", "Implement a Deque", "Balanced Parentheses", "Implement a Queue 2 Stacks",
-    "Singly List Cycle Check"
+  let initialAlgorithms = [
+
   ];
+  const fetchData = async() => {
+    var response =  await fetch("http://localhost:4000/algorithms")
+    return response.json()
+  }
   const [algorithms, setAlgorithms] = useState(initialAlgorithms);
+  useEffect(() => {
+    fetchData().then((data) => {
+      setAlgorithms(data.map(d=> d.algorithm_name))
+      console.log(initialAlgorithms)
+    })
+  },[initialAlgorithms, algorithms])
   const [completedAlgorithms, setCompletedAlgorithms] = useState([]);
   const [currentProblem, setCurrentProblem] = useState('');
   
@@ -79,7 +86,7 @@ const handleAlgorithmCompletion = (algorithm) => {
       {/* AlgoQuestion component with algorithm prop */}
       {currentProblem && currentProblem !== 'All done!' && <AlgoQuestion algorithm={currentProblem} />}
       {/* AlgoForm component */}
-      {/*<AlgoForm onAddAlgorithm={handleAddAlgorithm} /> */}
+      {<AlgoForm onAddAlgorithm={handleAddAlgorithm} />}
     </div>
   );
 }

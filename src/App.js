@@ -86,7 +86,7 @@ const handleAlgorithmCompletion = (algorithm) => {
       {/* AlgoQuestion component with algorithm prop */}
       {currentProblem && currentProblem !== 'All done!' && <AlgoQuestion algorithm={currentProblem} />}
       {/* AlgoForm component */}
-      {<AlgoForm onAddAlgorithm={handleAddAlgorithm} />}
+    {/*<AlgoForm onAddAlgorithm={handleAddAlgorithm} />*/}
     </div>
   );
 }

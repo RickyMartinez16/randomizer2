@@ -1,20 +1,20 @@
 import React from 'react';
-import AlgoItem from './AlgoItem'; // Import AlgoItem component
+import AlgoItem from './AlgoItem';
 
-const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, onAddAlgorithm, currentProblem }) => {
+const AlgoList = ({ algorithms, completedAlgorithms, markAlgorithmAsComplete, addAlgorithmToList, currentProblem }) => {
+  
   return (
     <div className="algo-list">
-      <h2>Algorithm List</h2> {/* Title for the algorithm list */}
+      <h2>Algorithm List</h2> 
       <ul>
-        {/* Map through the algorithms array to render AlgoItem components */}
         {algorithms.map((algorithm, index) => (
           <AlgoItem
-            key={index} // Unique key for each AlgoItem
-            algorithm={algorithm} // Pass algorithm name as prop
-            completed={completedAlgorithms.includes(algorithm)} // Check if algorithm is completed
-            onAlgorithmClick={onAlgorithmClick} // Handler for clicking on an algorithm
-            completedAlgorithms={completedAlgorithms} // Pass completed algorithms as prop
-            isCurrentProblem={algorithm === currentProblem} // Pass whether the algorithm is the current problem
+            key={index}
+            algorithmName={algorithm.algorithm_name}
+            isAlgorithmCompleted={completedAlgorithms.includes(algorithm.algorithm_name)} //currently not using
+            markAlgorithmAsComplete={markAlgorithmAsComplete}
+            completedAlgorithms={completedAlgorithms}
+            isCurrentProblem={algorithm.algorithm_name === currentProblem.algorithm_name}
           />
         ))}
       </ul>
@@ -22,4 +22,5 @@ const AlgoList = ({ algorithms, completedAlgorithms, onAlgorithmClick, onAddAlgo
   );
 };
 
-export default AlgoList; // Export AlgoList component
+export default AlgoList;
+

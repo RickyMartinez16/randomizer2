@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form'; // Import Bootstrap Form component
 import Button from 'react-bootstrap/Button'; // Import Bootstrap Button component
 
-const AlgoForm = ({ onAddAlgorithm }) => {
+const AlgoForm = ({ addAlgorithmToList }) => {
   const [algorithmName, setAlgorithmName] = useState('');
 
   // Handler for input change
@@ -15,8 +15,8 @@ const AlgoForm = ({ onAddAlgorithm }) => {
     event.preventDefault();
     // Check if algorithm name is not empty
     if (algorithmName.trim() !== '') {
-      // Call onAddAlgorithm with the new algorithm name
-      onAddAlgorithm(algorithmName);
+      // Call addAlgorithmToList with the new algorithm name
+      addAlgorithmToList(algorithmName);
       // Clear the input field
       setAlgorithmName('');
     }
